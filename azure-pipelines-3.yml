@@ -21,7 +21,7 @@ steps:
 - script: |
     # Merge the feature branch into the main branch
     git checkout main
-    git merge --no-ff feature/your-feature-branch
+    git merge --no-ff feature/certifications
     git push origin main
   displayName: 'Merge feature branch into main and push changes'
 
