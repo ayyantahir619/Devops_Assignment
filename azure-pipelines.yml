@@ -4,16 +4,17 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  branches:
+    include:
+      - main  # Add the main branch here
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'your-self-hosted-agent'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - script: |
+      # Merge the feature branch into the main branch
+      git checkout main
+      git merge --no-ff feature/your-feature-branch
+      git push origin main
+    displayName: 'Merge feature branch into main and push changes'
